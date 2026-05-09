@@ -49,3 +49,4 @@ venv.bak/
 !package-lock.json
 !tsconfig.json
 !.eslintrc.json
+!vercel.json
