@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Video Summarizer — LifeOS</title>
+<meta name="description" content="AI-powered cinematic learning platform transforming long-form videos into actionable intelligence.">
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root{--ac:#f43f5e;--ac2:#fb7185;--ac-rgb:244,63,94;--ac2-rgb:251,113,133}
+  .c-hero-label::before{background:var(--ac)}.c-sh-label{color:var(--ac)!important}.c-sh-label::before{background:var(--ac)}
+  .c-feature-icon{background:rgba(var(--ac-rgb),0.12);color:var(--ac)}.c-feature:hover{border-color:rgba(var(--ac-rgb),0.2)}
+  .c-feature::before{background:radial-gradient(circle at var(--gx,50%) var(--gy,50%),rgba(var(--ac-rgb),0.06),transparent 60%)}
+  .c-feature-list li::before{background:var(--ac)}.c-hero-title .accent{background:linear-gradient(135deg,var(--ac),var(--ac2),#f59e0b)}
+  .c-stat-num{color:var(--ac2)}
+  .waveform{display:flex;align-items:end;gap:3px;height:40px}
+  .waveform span{width:3px;background:var(--ac);border-radius:2px;animation:wave 1.2s ease-in-out infinite}
+  .waveform span:nth-child(2){animation-delay:0.1s}.waveform span:nth-child(3){animation-delay:0.2s}
+  .waveform span:nth-child(4){animation-delay:0.3s}.waveform span:nth-child(5){animation-delay:0.4s}
+  .waveform span:nth-child(6){animation-delay:0.5s}.waveform span:nth-child(7){animation-delay:0.6s}
+  @keyframes wave{0%,100%{height:8px;opacity:0.4}50%{height:35px;opacity:1}}
+  .transcript-line{padding:0.8rem 0;border-bottom:1px solid var(--border);display:flex;gap:1rem;font-size:0.82rem;color:var(--text2)}
+  .transcript-time{font-family:var(--font-mono);font-size:0.7rem;color:var(--ac);min-width:50px;flex-shrink:0}
+  .summary-card{border:1px solid var(--border);border-radius:var(--r);padding:1.5rem;background:linear-gradient(135deg,var(--bg2),rgba(var(--ac-rgb),0.03));transition:all 0.3s var(--ease)}
+  .summary-card:hover{border-color:rgba(var(--ac-rgb),0.2);transform:translateY(-3px)}
+  .summary-card-title{font-family:var(--font-display);font-weight:600;margin-bottom:0.5rem}
+  .summary-card-text{font-size:0.82rem;color:var(--text2);line-height:1.7}
+</style>
+</head>
+<body>
+<div class="c-loader"><div class="c-loader-bar"></div></div>
+<nav class="c-nav">
+  <a href="../../index.html" class="c-nav-back"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>LifeOS</a>
+  <div class="c-nav-links"><a href="#processing" class="c-nav-link">Processing</a><a href="#features" class="c-nav-link">Features</a><a href="#summary" class="c-nav-link">Summary</a></div>
+</nav>
+
+<section class="c-hero">
+  <div class="c-hero-bg"><canvas id="particles"></canvas></div>
+  <div class="c-hero-content">
+    <div class="c-hero-label">03 — Video Summarizer</div>
+    <h1 class="c-hero-title">50 minutes into<br><span class="accent">5 minutes of intelligence.</span></h1>
+    <p class="c-hero-sub">An AI-powered cinematic learning platform that transforms long-form videos into actionable summaries, highlights, notes, and learning insights.</p>
+    <div class="c-hero-cta"><a href="#processing" class="c-btn c-btn-primary">See It Work</a><a href="#features" class="c-btn c-btn-ghost">Explore Features</a></div>
+  </div>
+  <div class="c-hero-num">03</div>
+  <div class="c-hero-scroll"><div class="scroll-indicator"></div><span>Scroll</span></div>
+</section>
+
+<div class="c-marquee"><div class="c-marquee-inner">
+  <span class="c-marquee-item">Whisper Transcription<span class="dot" style="background:var(--ac)"></span></span>
+  <span class="c-marquee-item">AI Summarization<span class="dot" style="background:var(--ac2)"></span></span>
+  <span class="c-marquee-item">Key Insights<span class="dot" style="background:#f59e0b"></span></span>
+  <span class="c-marquee-item">Chapter Segmentation<span class="dot" style="background:var(--ac)"></span></span>
+  <span class="c-marquee-item">Flashcards<span class="dot" style="background:var(--ac2)"></span></span>
+  <span class="c-marquee-item">AI Quiz Generation<span class="dot" style="background:#10b981"></span></span>
+</div></div>
+
+<section class="c-section-sm"><div class="c-stats c-reveal">
+  <div><div class="c-stat-num" data-count="90">0</div><div class="c-stat-label">% Time Saved</div></div>
+  <div><div class="c-stat-num" data-count="50">0</div><div class="c-stat-label">Languages</div></div>
+  <div><div class="c-stat-num" data-count="99">0</div><div class="c-stat-label">% Accuracy</div></div>
+  <div><div class="c-stat-num" data-count="5">0</div><div class="c-stat-label">Sec Processing</div></div>
+</div></section>
+
+<!-- AI Processing Demo -->
+<div class="c-divider"></div>
+<section class="c-section" id="processing">
+  <div class="c-split">
+    <div class="c-reveal">
+      <div class="c-sh"><div class="c-sh-label"><span>Upload Experience</span></div>
+        <h2 class="c-sh-title">Paste. Process.<br>Learn.</h2>
+        <p class="c-sh-desc">Drop a YouTube URL and watch AI extract knowledge in real-time with waveform visualizations and streaming transcription.</p>
+      </div>
+    </div>
+    <div class="c-reveal" style="transition-delay:0.15s">
+      <div class="c-showcase">
+        <div class="c-showcase-dots"><span></span><span></span><span></span></div>
+        <div class="c-showcase-content" style="align-items:flex-start;padding:2.5rem">
+          <div style="width:100%;padding:0.8rem 1rem;border:1px solid var(--border);border-radius:var(--r-sm);font-size:0.8rem;color:var(--text3);margin-bottom:1.5rem;font-family:var(--font-mono)">https://youtube.com/watch?v=...</div>
+          <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1.5rem"><div class="waveform"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div><span style="font-size:0.7rem;color:var(--ac)">Processing audio...</span></div>
+          <div class="transcript-line"><span class="transcript-time">00:12</span><span>The key to building scalable AI systems is understanding context windows...</span></div>
+          <div class="transcript-line"><span class="transcript-time">01:45</span><span>Memory-efficient architectures allow local deployment on consumer hardware...</span></div>
+          <div class="transcript-line"><span class="transcript-time">03:22</span><span>The future of AI is private, fast, and accessible to everyone...</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Features -->
+<div class="c-divider"></div>
+<section class="c-section" id="features">
+  <div class="c-sh c-reveal"><div class="c-sh-label"><span>Core Features</span></div><h2 class="c-sh-title">Learn faster.<br>Remember more.</h2></div>
+  <div class="c-features c-reveal">
+    <div class="c-feature"><div class="c-feature-icon">🎬</div><div class="c-feature-title">AI Video Processing</div><ul class="c-feature-list"><li>YouTube URL input</li><li>Whisper transcription</li><li>AI summarization</li><li>Timestamp generation</li><li>Key insight extraction</li><li>Chapter segmentation</li></ul></div>
+    <div class="c-feature"><div class="c-feature-icon">📚</div><div class="c-feature-title">Learning Features</div><ul class="c-feature-list"><li>Flashcards</li><li>AI quiz generation</li><li>Knowledge maps</li><li>Save notes</li><li>Export PDF</li><li>Highlight moments</li></ul></div>
+    <div class="c-feature"><div class="c-feature-icon">✨</div><div class="c-feature-title">User Experience</div><ul class="c-feature-list"><li>Real-time progress</li><li>Interactive transcript</li><li>Video player sync</li><li>AI explanation mode</li></ul></div>
+  </div>
+</section>
+
+<!-- Summary Demo -->
+<div class="c-divider"></div>
+<section class="c-section" id="summary">
+  <div class="c-sh c-reveal"><div class="c-sh-label"><span>AI Summary View</span></div><h2 class="c-sh-title">Knowledge,<br>distilled.</h2></div>
+  <div class="c-reveal" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1rem">
+    <div class="summary-card"><div class="summary-card-title">🔑 Key Insight 1</div><div class="summary-card-text">Context windows are the fundamental limitation of current LLM architectures, requiring novel approaches to memory management.</div></div>
+    <div class="summary-card"><div class="summary-card-title">🔑 Key Insight 2</div><div class="summary-card-text">Local AI deployment reduces latency by 10x while maintaining 95% of cloud model quality for most use cases.</div></div>
+    <div class="summary-card"><div class="summary-card-title">🔑 Key Insight 3</div><div class="summary-card-text">RAG-based systems outperform fine-tuned models for domain-specific knowledge retrieval tasks.</div></div>
+    <div class="summary-card"><div class="summary-card-title">📝 Action Item</div><div class="summary-card-text">Implement vector-based memory store with PostgreSQL pgvector for persistent conversation context.</div></div>
+  </div>
+</section>
+
+<!-- Stack + Pages -->
+<div class="c-divider"></div>
+<section class="c-section">
+  <div class="c-split c-reveal">
+    <div><div class="c-sh"><div class="c-sh-label"><span>Tech Stack</span></div></div><div class="c-stack"><span class="c-stack-pill">Next.js</span><span class="c-stack-pill">Tailwind CSS</span><span class="c-stack-pill">Framer Motion</span><span class="c-stack-pill">Python</span><span class="c-stack-pill">Whisper</span><span class="c-stack-pill">FFmpeg</span><span class="c-stack-pill">Ollama</span><span class="c-stack-pill">FastAPI</span></div></div>
+    <div><div class="c-sh"><div class="c-sh-label"><span>Pages</span></div></div><div class="c-pages" style="grid-template-columns:1fr"><div class="c-page">Landing Page</div><div class="c-page">Video Analyzer</div><div class="c-page">AI Summary View</div><div class="c-page">Saved Library</div><div class="c-page">Learning Dashboard</div></div></div>
+  </div>
+</section>
+
+<section class="c-cta c-reveal">
+  <h2 class="c-cta-title" style="background:linear-gradient(135deg,var(--ac),var(--ac2));-webkit-background-clip:text;-webkit-text-fill-color:transparent">Stop watching.<br>Start learning.</h2>
+  <p class="c-cta-sub">Transform any video into actionable knowledge in seconds.</p>
+  <a href="../../index.html" class="c-btn c-btn-primary">← Back to LifeOS</a>
+</section>
+<footer class="c-footer"><div class="c-footer-brand">LifeOS / Video Summarizer</div><div class="c-footer-copy">© 2025 Divyanshu Mishra</div></footer>
+<script src="../../engine.js"></script>
+<script>initEngine({particles:'particles',particleColor:'244,63,94',color1:'244,63,94',color2:'251,113,133'});</script>
+</body></html>

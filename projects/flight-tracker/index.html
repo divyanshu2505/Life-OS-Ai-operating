@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Flight Tracking System — LifeOS</title>
+<meta name="description" content="Real-time global flight radar with cinematic aviation visuals and AI-powered insights.">
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root{--ac:#3b82f6;--ac2:#60a5fa;--ac-rgb:59,130,246;--ac2-rgb:96,165,250}
+  .c-hero-label::before{background:var(--ac)}.c-sh-label{color:var(--ac)!important}.c-sh-label::before{background:var(--ac)}
+  .c-feature-icon{background:rgba(var(--ac-rgb),0.12);color:var(--ac)}.c-feature:hover{border-color:rgba(var(--ac-rgb),0.2)}
+  .c-feature::before{background:radial-gradient(circle at var(--gx,50%) var(--gy,50%),rgba(var(--ac-rgb),0.06),transparent 60%)}
+  .c-feature-list li::before{background:var(--ac)}.c-hero-title .accent{background:linear-gradient(135deg,var(--ac),var(--ac2),#06b6d4)}
+  .c-stat-num{color:var(--ac2)}
+  .radar-ring{width:200px;height:200px;border-radius:50%;border:1px solid rgba(var(--ac-rgb),0.15);position:relative;margin:0 auto}
+  .radar-ring::before,.radar-ring::after{content:'';position:absolute;border-radius:50%;border:1px solid rgba(var(--ac-rgb),0.08)}
+  .radar-ring::before{inset:25%}.radar-ring::after{inset:50%}
+  .radar-sweep{position:absolute;top:50%;left:50%;width:50%;height:2px;background:linear-gradient(to right,rgba(var(--ac-rgb),0.6),transparent);transform-origin:left;animation:sweep 4s linear infinite}
+  @keyframes sweep{to{transform:rotate(360deg)}}
+  .flight-dot{position:absolute;width:6px;height:6px;background:var(--ac2);border-radius:50%;box-shadow:0 0 8px rgba(var(--ac2-rgb),0.6)}
+  .flight-card{border:1px solid var(--border);border-radius:var(--r);padding:1.2rem;background:var(--bg2);display:flex;align-items:center;gap:1.2rem;transition:all 0.3s var(--ease)}
+  .flight-card:hover{border-color:rgba(var(--ac-rgb),0.3);transform:translateX(4px)}
+  .flight-code{font-family:var(--font-mono);font-size:1.1rem;font-weight:600;color:var(--ac2);min-width:70px}
+  .flight-route{font-size:0.82rem;color:var(--text2)}.flight-status{font-size:0.7rem;padding:0.25rem 0.6rem;border-radius:50px;margin-left:auto;flex-shrink:0}
+  .status-live{background:rgba(16,185,129,0.15);color:#10b981}.status-delayed{background:rgba(245,158,11,0.15);color:#f59e0b}
+</style>
+</head>
+<body>
+<div class="c-loader"><div class="c-loader-bar"></div></div>
+<nav class="c-nav"><a href="../../index.html" class="c-nav-back"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>LifeOS</a><div class="c-nav-links"><a href="#radar" class="c-nav-link">Radar</a><a href="#features" class="c-nav-link">Features</a><a href="#flights" class="c-nav-link">Flights</a></div></nav>
+
+<section class="c-hero">
+  <div class="c-hero-bg"><canvas id="particles"></canvas></div>
+  <div class="c-hero-content">
+    <div class="c-hero-label">06 — Flight Tracking System</div>
+    <h1 class="c-hero-title">Track the sky<br><span class="accent">in real time.</span></h1>
+    <p class="c-hero-sub">A real-time global flight radar experience inspired by Flightradar24 with cinematic aviation visuals and interactive tracking.</p>
+    <div class="c-hero-cta"><a href="#radar" class="c-btn c-btn-primary">Open Radar</a><a href="#features" class="c-btn c-btn-ghost">See Features</a></div>
+  </div>
+  <div class="c-hero-num">06</div>
+  <div class="c-hero-scroll"><div class="scroll-indicator"></div><span>Scroll</span></div>
+</section>
+
+<div class="c-marquee"><div class="c-marquee-inner">
+  <span class="c-marquee-item">Live Tracking<span class="dot" style="background:var(--ac)"></span></span>
+  <span class="c-marquee-item">Delay Prediction<span class="dot" style="background:#f59e0b"></span></span>
+  <span class="c-marquee-item">Airport Analytics<span class="dot" style="background:var(--ac2)"></span></span>
+  <span class="c-marquee-item">Weather Impact<span class="dot" style="background:#10b981"></span></span>
+  <span class="c-marquee-item">Route Visualization<span class="dot" style="background:var(--ac)"></span></span>
+  <span class="c-marquee-item">Global Coverage<span class="dot" style="background:var(--ac2)"></span></span>
+</div></div>
+
+<section class="c-section-sm"><div class="c-stats c-reveal">
+  <div><div class="c-stat-num" data-count="10000">0</div><div class="c-stat-label">Live Flights</div></div>
+  <div><div class="c-stat-num" data-count="500">0</div><div class="c-stat-label">Airports</div></div>
+  <div><div class="c-stat-num" data-count="85">0</div><div class="c-stat-label">% Delay Accuracy</div></div>
+  <div><div class="c-stat-num" data-count="195">0</div><div class="c-stat-label">Countries</div></div>
+</div></section>
+
+<!-- Radar Demo -->
+<div class="c-divider"></div>
+<section class="c-section" id="radar">
+  <div class="c-split">
+    <div class="c-reveal">
+      <div class="c-sh"><div class="c-sh-label"><span>Global Radar</span></div><h2 class="c-sh-title">Aviation<br>intelligence.</h2><p class="c-sh-desc">Real-time radar with neon flight paths, glowing markers, and sweep animations. Track any aircraft across the globe.</p></div>
+    </div>
+    <div class="c-reveal" style="transition-delay:0.15s">
+      <div class="radar-ring">
+        <div class="radar-sweep"></div>
+        <div class="flight-dot" style="top:25%;left:60%"></div>
+        <div class="flight-dot" style="top:45%;left:30%"></div>
+        <div class="flight-dot" style="top:70%;left:65%"></div>
+        <div class="flight-dot" style="top:35%;left:75%"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="c-divider"></div>
+<section class="c-section" id="features">
+  <div class="c-sh c-reveal"><div class="c-sh-label"><span>Core Features</span></div><h2 class="c-sh-title">Every flight.<br>Every detail.</h2></div>
+  <div class="c-features c-reveal">
+    <div class="c-feature"><div class="c-feature-icon">✈️</div><div class="c-feature-title">Radar System</div><ul class="c-feature-list"><li>Real-time flight tracking</li><li>Flight markers</li><li>Live flight paths</li><li>Airport analytics</li><li>Aircraft details</li></ul></div>
+    <div class="c-feature"><div class="c-feature-icon">🧠</div><div class="c-feature-title">AI Features</div><ul class="c-feature-list"><li>Delay prediction</li><li>Flight recommendations</li><li>Weather impact analysis</li><li>Smart airport insights</li></ul></div>
+    <div class="c-feature"><div class="c-feature-icon">📊</div><div class="c-feature-title">Dashboard</div><ul class="c-feature-list"><li>Live statistics</li><li>Air traffic density</li><li>Route visualizations</li><li>Country-wise filters</li></ul></div>
+  </div>
+</section>
+
+<!-- Live Flights -->
+<div class="c-divider"></div>
+<section class="c-section" id="flights">
+  <div class="c-sh c-reveal"><div class="c-sh-label"><span>Flight Intelligence</span></div><h2 class="c-sh-title">Live flight<br>feed.</h2></div>
+  <div class="c-reveal" style="display:flex;flex-direction:column;gap:0.75rem">
+    <div class="flight-card"><div class="flight-code">AI 101</div><div class="flight-route">DEL → BOM · Boeing 787</div><div class="flight-status status-live">On Time</div></div>
+    <div class="flight-card"><div class="flight-code">EK 510</div><div class="flight-route">DXB → DEL · Airbus A380</div><div class="flight-status status-live">On Time</div></div>
+    <div class="flight-card"><div class="flight-code">BA 142</div><div class="flight-route">LHR → JFK · Boeing 777</div><div class="flight-status status-delayed">Delayed 25m</div></div>
+    <div class="flight-card"><div class="flight-code">SQ 423</div><div class="flight-route">SIN → SYD · Airbus A350</div><div class="flight-status status-live">On Time</div></div>
+  </div>
+</section>
+
+<div class="c-divider"></div>
+<section class="c-section">
+  <div class="c-split c-reveal">
+    <div><div class="c-sh"><div class="c-sh-label"><span>Tech Stack</span></div></div><div class="c-stack"><span class="c-stack-pill">Next.js</span><span class="c-stack-pill">OpenStreetMap</span><span class="c-stack-pill">Framer Motion</span><span class="c-stack-pill">Tailwind CSS</span><span class="c-stack-pill">FastAPI</span><span class="c-stack-pill">Aviation APIs</span><span class="c-stack-pill">WebSockets</span></div></div>
+    <div><div class="c-sh"><div class="c-sh-label"><span>Pages</span></div></div><div class="c-pages" style="grid-template-columns:1fr"><div class="c-page">Homepage</div><div class="c-page">Global Radar</div><div class="c-page">Flight Details</div><div class="c-page">Airport Dashboard</div><div class="c-page">Analytics View</div></div></div>
+  </div>
+</section>
+
+<section class="c-cta c-reveal">
+  <h2 class="c-cta-title" style="background:linear-gradient(135deg,var(--ac),var(--ac2));-webkit-background-clip:text;-webkit-text-fill-color:transparent">The sky<br>is yours.</h2>
+  <p class="c-cta-sub">Track, analyze, and predict — in real time.</p>
+  <a href="../../index.html" class="c-btn c-btn-primary">← Back to LifeOS</a>
+</section>
+<footer class="c-footer"><div class="c-footer-brand">LifeOS / Flight Tracker</div><div class="c-footer-copy">© 2025 Divyanshu Mishra</div></footer>
+<script src="../../engine.js"></script>
+<script>initEngine({particles:'particles',particleColor:'59,130,246',color1:'59,130,246',color2:'96,165,250'});</script>
+</body></html>

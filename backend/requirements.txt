@@ -1,0 +1,9 @@
+fastapi
+uvicorn[standard]
+websockets
+ollama
+redis
+sqlalchemy
+psycopg2-binary
+pydantic
+pydantic-settings

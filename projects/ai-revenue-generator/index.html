@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>AI Revenue Generator — LifeOS</title>
+<meta name="description" content="AI-powered income discovery engine aggregating freelancing, remote jobs, and passive income opportunities.">
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root{--ac:#06b6d4;--ac2:#22d3ee;--ac-rgb:6,182,212;--ac2-rgb:34,211,238}
+  .c-hero-label::before{background:var(--ac)}.c-sh-label{color:var(--ac)!important}.c-sh-label::before{background:var(--ac)}
+  .c-feature-icon{background:rgba(var(--ac-rgb),0.12);color:var(--ac)}.c-feature:hover{border-color:rgba(var(--ac-rgb),0.2)}
+  .c-feature::before{background:radial-gradient(circle at var(--gx,50%) var(--gy,50%),rgba(var(--ac-rgb),0.06),transparent 60%)}
+  .c-feature-list li::before{background:var(--ac)}.c-hero-title .accent{background:linear-gradient(135deg,var(--ac),var(--ac2),#7c3aed)}
+  .c-stat-num{color:var(--ac2)}
+  .earnings-card{border:1px solid var(--border);border-radius:var(--r);padding:1.5rem;background:var(--bg2);position:relative;overflow:hidden}
+  .earnings-card::before{content:'';position:absolute;top:0;right:0;width:80px;height:80px;background:radial-gradient(circle,rgba(var(--ac-rgb),0.1),transparent);border-radius:50%}
+  .earnings-num{font-family:var(--font-display);font-size:2rem;font-weight:800;color:var(--ac2);letter-spacing:-0.03em}
+  .earnings-label{font-size:0.7rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.1em;margin-top:0.3rem}
+  .opp-card{border:1px solid var(--border);border-radius:var(--r);padding:1.2rem 1.5rem;background:var(--bg2);display:flex;align-items:center;justify-content:space-between;transition:all 0.3s var(--ease)}
+  .opp-card:hover{border-color:rgba(var(--ac-rgb),0.3);transform:translateX(4px)}
+  .opp-platform{font-size:0.65rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--text3)}
+  .opp-title{font-size:0.9rem;font-weight:500;margin-top:0.2rem}
+  .opp-pay{font-family:var(--font-mono);font-size:0.85rem;color:var(--ac2)}
+</style>
+</head>
+<body>
+<div class="c-loader"><div class="c-loader-bar"></div></div>
+<nav class="c-nav">
+  <a href="../../index.html" class="c-nav-back"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>LifeOS</a>
+  <div class="c-nav-links"><a href="#features" class="c-nav-link">Features</a><a href="#intelligence" class="c-nav-link">Intelligence</a><a href="#stack" class="c-nav-link">Stack</a></div>
+</nav>
+
+<section class="c-hero">
+  <div class="c-hero-bg"><canvas id="particles"></canvas></div>
+  <div class="c-hero-content">
+    <div class="c-hero-label">02 — AI Revenue Generator</div>
+    <h1 class="c-hero-title">AI that finds<br><span class="accent">money for you.</span></h1>
+    <p class="c-hero-sub">An AI-powered income discovery engine aggregating freelancing, remote jobs, creator monetization, and passive income opportunities into one intelligent dashboard.</p>
+    <div class="c-hero-cta"><a href="#features" class="c-btn c-btn-primary">Discover Opportunities</a><a href="#intelligence" class="c-btn c-btn-ghost">See AI Intelligence</a></div>
+  </div>
+  <div class="c-hero-num">02</div>
+  <div class="c-hero-scroll"><div class="scroll-indicator"></div><span>Scroll</span></div>
+</section>
+
+<div class="c-marquee"><div class="c-marquee-inner">
+  <span class="c-marquee-item">100+ Platforms<span class="dot" style="background:var(--ac)"></span></span>
+  <span class="c-marquee-item">AI Ranking<span class="dot" style="background:var(--ac2)"></span></span>
+  <span class="c-marquee-item">Trust Scores<span class="dot" style="background:#10b981"></span></span>
+  <span class="c-marquee-item">Salary Estimation<span class="dot" style="background:var(--ac)"></span></span>
+  <span class="c-marquee-item">Skill Matching<span class="dot" style="background:#f59e0b"></span></span>
+  <span class="c-marquee-item">Real-time Updates<span class="dot" style="background:var(--ac2)"></span></span>
+</div></div>
+
+<section class="c-section-sm">
+  <div class="c-stats c-reveal">
+    <div><div class="c-stat-num" data-count="100">0</div><div class="c-stat-label">Platforms Scraped</div></div>
+    <div><div class="c-stat-num" data-count="50">0</div><div class="c-stat-label">K+ Opportunities</div></div>
+    <div><div class="c-stat-num" data-count="95">0</div><div class="c-stat-label">% Match Accuracy</div></div>
+    <div><div class="c-stat-num" data-count="24">0</div><div class="c-stat-label">Hr Updates</div></div>
+  </div>
+</section>
+
+<!-- Earnings Dashboard Demo -->
+<div class="c-divider"></div>
+<section class="c-section">
+  <div class="c-split">
+    <div class="c-reveal">
+      <div class="c-sh"><div class="c-sh-label"><span>Earnings Intelligence</span></div>
+        <h2 class="c-sh-title">Track your<br>income potential.</h2>
+        <p class="c-sh-desc">AI-powered dashboards that visualize earning trends, predict income growth, and identify high-value opportunities.</p>
+      </div>
+    </div>
+    <div class="c-reveal" style="transition-delay:0.15s">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem">
+        <div class="earnings-card"><div class="earnings-num" data-count="12500">$0</div><div class="earnings-label">Monthly Potential</div></div>
+        <div class="earnings-card"><div class="earnings-num" data-count="847">0</div><div class="earnings-label">Active Opportunities</div></div>
+        <div class="earnings-card"><div class="earnings-num" data-count="96">0</div><div class="earnings-label">% Skill Match</div></div>
+        <div class="earnings-card"><div class="earnings-num" data-count="23">0</div><div class="earnings-label">New Today</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Features -->
+<div class="c-divider"></div>
+<section class="c-section" id="features">
+  <div class="c-sh c-reveal"><div class="c-sh-label"><span>Core Features</span></div><h2 class="c-sh-title">Intelligence meets<br>opportunity.</h2></div>
+  <div class="c-features c-reveal">
+    <div class="c-feature"><div class="c-feature-icon">🔍</div><div class="c-feature-title">Opportunity Aggregator</div><ul class="c-feature-list"><li>Scrape 100+ platforms</li><li>AI-based ranking</li><li>Duplicate removal</li><li>Real-time updates</li><li>Trust score system</li></ul></div>
+    <div class="c-feature"><div class="c-feature-icon">🤖</div><div class="c-feature-title">AI Intelligence</div><ul class="c-feature-list"><li>Opportunity matching</li><li>Skill analysis</li><li>Resume matching</li><li>AI recommendations</li><li>Salary estimation</li></ul></div>
+    <div class="c-feature"><div class="c-feature-icon">📊</div><div class="c-feature-title">User Dashboard</div><ul class="c-feature-list"><li>Saved opportunities</li><li>Income tracker</li><li>Skill growth map</li><li>Daily opportunity feed</li><li>Notification engine</li></ul></div>
+  </div>
+</section>
+
+<!-- Live Opportunities -->
+<div class="c-divider"></div>
+<section class="c-section" id="intelligence">
+  <div class="c-sh c-reveal"><div class="c-sh-label"><span>Platform Aggregator</span></div><h2 class="c-sh-title">Live opportunity<br>feed.</h2></div>
+  <div class="c-reveal" style="display:flex;flex-direction:column;gap:0.75rem">
+    <div class="opp-card"><div><div class="opp-platform">Upwork</div><div class="opp-title">Senior Python Developer — AI Integration</div></div><div class="opp-pay">$85/hr</div></div>
+    <div class="opp-card"><div><div class="opp-platform">Toptal</div><div class="opp-title">Full Stack Engineer — FastAPI + React</div></div><div class="opp-pay">$120/hr</div></div>
+    <div class="opp-card"><div><div class="opp-platform">Remote OK</div><div class="opp-title">AI/ML Engineer — Startup (Remote)</div></div><div class="opp-pay">$150K/yr</div></div>
+    <div class="opp-card"><div><div class="opp-platform">Fiverr Pro</div><div class="opp-title">AI Chatbot Development</div></div><div class="opp-pay">$2,500/gig</div></div>
+  </div>
+</section>
+
+<!-- Stack + Pages + Monetization -->
+<div class="c-divider"></div>
+<section class="c-section" id="stack">
+  <div class="c-split c-reveal">
+    <div><div style="font-size:0.65rem;text-transform:uppercase;letter-spacing:0.15em;color:var(--text3);margin-bottom:1rem">Frontend</div><div class="c-stack"><span class="c-stack-pill">Next.js</span><span class="c-stack-pill">Tailwind CSS</span><span class="c-stack-pill">Framer Motion</span></div><div style="font-size:0.65rem;text-transform:uppercase;letter-spacing:0.15em;color:var(--text3);margin:1.5rem 0 1rem">Backend</div><div class="c-stack"><span class="c-stack-pill">Python</span><span class="c-stack-pill">BeautifulSoup</span><span class="c-stack-pill">FastAPI</span><span class="c-stack-pill">PostgreSQL</span><span class="c-stack-pill">Celery</span></div></div>
+    <div><div class="c-sh"><div class="c-sh-label"><span>Pages</span></div></div><div class="c-pages" style="grid-template-columns:1fr"><div class="c-page">Homepage</div><div class="c-page">Opportunities Feed</div><div class="c-page">Income Dashboard</div><div class="c-page">Skill Matching</div><div class="c-page">Resume Analysis</div><div class="c-page">Notifications Center</div></div></div>
+  </div>
+</section>
+
+<section class="c-cta c-reveal">
+  <h2 class="c-cta-title" style="background:linear-gradient(135deg,var(--ac),var(--ac2));-webkit-background-clip:text;-webkit-text-fill-color:transparent">Start earning<br>smarter.</h2>
+  <p class="c-cta-sub">Let AI discover your next income stream.</p>
+  <a href="../../index.html" class="c-btn c-btn-primary">← Back to LifeOS</a>
+</section>
+<footer class="c-footer"><div class="c-footer-brand">LifeOS / AI Revenue Generator</div><div class="c-footer-copy">© 2025 Divyanshu Mishra</div></footer>
+<script src="../../engine.js"></script>
+<script>initEngine({particles:'particles',particleColor:'6,182,212',color1:'6,182,212',color2:'34,211,238'});</script>
+</body></html>

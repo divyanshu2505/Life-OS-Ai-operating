@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>LifeOS — AI Operating System Ecosystem</title>
+<meta name="description" content="9 premium AI-powered products connected into one cinematic operating system. By Divyanshu Mishra.">
+<link rel="stylesheet" href="style.css">
+<style>
+  .m-hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;position:relative;padding:4rem 2rem;overflow:hidden}
+  .m-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 40%,rgba(124,58,237,0.07),transparent),radial-gradient(ellipse 60% 50% at 70% 70%,rgba(6,182,212,0.05),transparent)}
+  .m-hero-badge{display:inline-flex;align-items:center;gap:0.6rem;padding:0.5rem 1.2rem;border:1px solid var(--border);border-radius:50px;font-size:0.65rem;text-transform:uppercase;letter-spacing:0.15em;color:var(--text3);font-family:var(--font-mono);margin-bottom:2.5rem;opacity:0;animation:revealUp 1s var(--ease) 0.2s forwards}
+  .m-hero-badge .pulse{width:6px;height:6px;border-radius:50%;background:#10b981;animation:pulse 2s ease infinite}
+  @keyframes pulse{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(16,185,129,0.4)}50%{opacity:.7;box-shadow:0 0 0 8px rgba(16,185,129,0)}}
+  .m-hero-title{font-family:var(--font-display);font-size:clamp(3.5rem,10vw,9rem);font-weight:900;letter-spacing:-0.06em;line-height:0.85;margin-bottom:2rem;opacity:0;animation:revealUp 1.2s var(--ease) 0.4s forwards}
+  .m-hero-title .gr{background:linear-gradient(135deg,#7c3aed,#06b6d4,#f43f5e,#f59e0b);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-size:300% 300%;animation:gradShift 10s ease infinite}
+  @keyframes gradShift{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+  .m-hero-sub{font-size:clamp(1rem,2vw,1.3rem);color:var(--text2);max-width:600px;line-height:1.7;font-weight:300;margin-bottom:1rem;opacity:0;animation:revealUp 1s var(--ease) 0.7s forwards}
+  .m-hero-author{opacity:0;animation:revealUp 1s var(--ease) 0.9s forwards}
+  .m-hero-author .name{font-weight:600;font-size:0.85rem}
+  .m-hero-author .role{font-size:0.7rem;color:var(--text3);margin-top:0.3rem}
+  .m-hero-stack{display:flex;gap:0.4rem;flex-wrap:wrap;justify-content:center;margin-top:1rem;opacity:0;animation:revealUp 1s var(--ease) 1.1s forwards}
+  .m-hero-stack span{padding:0.3rem 0.7rem;font-size:0.6rem;border:1px solid var(--border);border-radius:50px;color:var(--text3);font-family:var(--font-mono)}
+  .m-count{font-family:var(--font-display);font-weight:900;font-size:clamp(4rem,8vw,6rem);letter-spacing:-0.04em}
+</style>
+</head>
+<body>
+
+<!-- Loader -->
+<div class="c-loader"><div class="c-loader-bar"></div></div>
+
+<!-- Cursor -->
+
+<!-- Nav -->
+<nav class="c-nav">
+  <a href="index.html" class="c-nav-logo">LifeOS<span>ecosystem</span></a>
+  <div class="c-nav-links">
+    <a href="#products" class="c-nav-link">Products</a>
+    <a href="#philosophy" class="c-nav-link">Philosophy</a>
+    <a href="#stack" class="c-nav-link">Stack</a>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="m-hero" id="hero">
+  <div class="m-hero-badge"><span class="pulse"></span> 9 Products · 1 Ecosystem</div>
+  <h1 class="m-hero-title">
+    <span class="gr">LifeOS</span>
+  </h1>
+  <p class="m-hero-sub">Nine AI-powered products connected into one cinematic operating system — redefining how humans interact with technology.</p>
+  <div class="m-hero-author">
+    <div class="name">Divyanshu Mishra</div>
+    <div class="role">Python Developer · AI Builder · Full Stack Engineer</div>
+    <div class="m-hero-stack">
+      <span>Next.js</span><span>Python</span><span>FastAPI</span><span>Ollama</span><span>PostgreSQL</span><span>GSAP</span><span>Framer Motion</span>
+    </div>
+  </div>
+  <div class="c-hero-scroll"><div class="scroll-indicator"></div><span>Scroll to explore</span></div>
+</section>
+
+<!-- Marquee -->
+<div class="c-marquee"><div class="c-marquee-inner">
+  <span class="c-marquee-item">AI Chat Assistant<span class="dot" style="background:#7c3aed"></span></span>
+  <span class="c-marquee-item">Revenue Generator<span class="dot" style="background:#06b6d4"></span></span>
+  <span class="c-marquee-item">Video Summarizer<span class="dot" style="background:#f43f5e"></span></span>
+  <span class="c-marquee-item">Book Generator<span class="dot" style="background:#f59e0b"></span></span>
+  <span class="c-marquee-item">Smart Navigation<span class="dot" style="background:#10b981"></span></span>
+  <span class="c-marquee-item">Flight Tracker<span class="dot" style="background:#3b82f6"></span></span>
+  <span class="c-marquee-item">Where Is My Cargo<span class="dot" style="background:#f97316"></span></span>
+  <span class="c-marquee-item">AI Jobs Board<span class="dot" style="background:#ec4899"></span></span>
+  <span class="c-marquee-item">AI Gym & Fitness<span class="dot" style="background:#84cc16"></span></span>
+</div></div>
+
+<!-- Stats -->
+<section class="c-section-sm" id="stats">
+  <div class="c-stats c-reveal">
+    <div><div class="c-stat-num m-count" data-count="9">0</div><div class="c-stat-label">Products</div></div>
+    <div><div class="c-stat-num m-count" data-count="63">0</div><div class="c-stat-label">Pages Designed</div></div>
+    <div><div class="c-stat-num m-count" data-count="150">0</div><div class="c-stat-label">Features</div></div>
+    <div><div class="c-stat-num m-count" data-count="12">0</div><div class="c-stat-label">Technologies</div></div>
+  </div>
+</section>
+
+<!-- Product Grid -->
+<section class="c-section" id="products">
+  <div class="c-sh c-reveal">
+    <div class="c-sh-label" style="color:var(--text3)"><span>The Product Universe</span></div>
+    <h2 class="c-sh-title">Explore each experience</h2>
+    <p class="c-sh-desc">Each product is a standalone Awwwards-level cinematic experience with its own identity, motion system, and storytelling flow.</p>
+  </div>
+
+  <div class="m-grid c-reveal">
+    <a href="projects/ai-chat-assistant/index.html" class="m-card" style="--ac:#7c3aed">
+      <div class="m-card-num">01</div><div class="m-card-icon">⚡</div>
+      <div class="m-card-title">AI Chat Assistant</div>
+      <div class="m-card-desc">ChatGPT-style workspace with Ollama, memory, streaming.</div>
+      <div class="m-card-link" style="color:#7c3aed">Explore experience →</div>
+    </a>
+    <a href="projects/ai-revenue-generator/index.html" class="m-card" style="--ac:#06b6d4">
+      <div class="m-card-num">02</div><div class="m-card-icon">💰</div>
+      <div class="m-card-title">AI Revenue Generator</div>
+      <div class="m-card-desc">Income discovery engine with AI-powered opportunity matching.</div>
+      <div class="m-card-link" style="color:#06b6d4">Explore experience →</div>
+    </a>
+    <a href="projects/video-summarizer/index.html" class="m-card" style="--ac:#f43f5e">
+      <div class="m-card-num">03</div><div class="m-card-icon">🎬</div>
+      <div class="m-card-title">Video Summarizer</div>
+      <div class="m-card-desc">Transform long videos into actionable AI summaries.</div>
+      <div class="m-card-link" style="color:#f43f5e">Explore experience →</div>
+    </a>
+    <a href="projects/ai-book-generator/index.html" class="m-card" style="--ac:#f59e0b">
+      <div class="m-card-num">04</div><div class="m-card-icon">📖</div>
+      <div class="m-card-title">AI Book Generator</div>
+      <div class="m-card-desc">AI publishing engine — books from a single prompt.</div>
+      <div class="m-card-link" style="color:#f59e0b">Explore experience →</div>
+    </a>
+    <a href="projects/smart-navigation/index.html" class="m-card" style="--ac:#10b981">
+      <div class="m-card-num">05</div><div class="m-card-icon">🗺️</div>
+      <div class="m-card-title">Smart Navigation</div>
+      <div class="m-card-desc">Tesla × Google Maps with AI route intelligence.</div>
+      <div class="m-card-link" style="color:#10b981">Explore experience →</div>
+    </a>
+    <a href="projects/flight-tracker/index.html" class="m-card" style="--ac:#3b82f6">
+      <div class="m-card-num">06</div><div class="m-card-icon">✈️</div>
+      <div class="m-card-title">Flight Tracking System</div>
+      <div class="m-card-desc">Real-time global radar with cinematic visuals.</div>
+      <div class="m-card-link" style="color:#3b82f6">Explore experience →</div>
+    </a>
+    <a href="projects/where-is-my-cargo/index.html" class="m-card" style="--ac:#f97316">
+      <div class="m-card-num">07</div><div class="m-card-icon">🚂</div>
+      <div class="m-card-title">Where Is My Cargo</div>
+      <div class="m-card-desc">Steam-inspired logistics operating system.</div>
+      <div class="m-card-link" style="color:#f97316">Explore experience →</div>
+    </a>
+    <a href="projects/ai-jobs-board/index.html" class="m-card" style="--ac:#ec4899">
+      <div class="m-card-num">08</div><div class="m-card-icon">💼</div>
+      <div class="m-card-title">AI Jobs Board</div>
+      <div class="m-card-desc">Premium career ecosystem for tech professionals.</div>
+      <div class="m-card-link" style="color:#ec4899">Explore experience →</div>
+    </a>
+    <a href="projects/ai-gym-workspace/index.html" class="m-card" style="--ac:#84cc16">
+      <div class="m-card-num">09</div><div class="m-card-icon">💪</div>
+      <div class="m-card-title">AI Gym & Fitness</div>
+      <div class="m-card-desc">Cyberpunk fitness workspace with AI coaching.</div>
+      <div class="m-card-link" style="color:#84cc16">Explore experience →</div>
+    </a>
+  </div>
+</section>
+
+<!-- Design Philosophy -->
+<div class="c-divider"></div>
+<section class="c-section" id="philosophy">
+  <div class="c-split">
+    <div class="c-reveal">
+      <div class="c-sh">
+        <div class="c-sh-label" style="color:var(--text3)"><span>Design Philosophy</span></div>
+        <h2 class="c-sh-title">Every pixel is<br>intentional</h2>
+        <p class="c-sh-desc">Inspired by Awwwards, CSS Design Awards, and the world's finest digital experiences. Each product follows a cinematic storytelling approach.</p>
+      </div>
+      <div class="c-stack">
+        <span class="c-stack-pill">Cinematic Storytelling</span>
+        <span class="c-stack-pill">Immersive Scrolling</span>
+        <span class="c-stack-pill">Bold Typography</span>
+        <span class="c-stack-pill">Motion Design</span>
+        <span class="c-stack-pill">Micro-interactions</span>
+        <span class="c-stack-pill">Glassmorphism</span>
+        <span class="c-stack-pill">Dynamic Gradients</span>
+        <span class="c-stack-pill">WebGL Particles</span>
+        <span class="c-stack-pill">Magnetic Buttons</span>
+        <span class="c-stack-pill">Smooth Transitions</span>
+      </div>
+    </div>
+    <div class="c-reveal" style="transition-delay:0.15s">
+      <div class="c-features" style="grid-template-columns:1fr">
+        <div class="c-feature"><div class="c-feature-title">🎬 Cinematic Heroes</div><div class="c-feature-desc">Full-viewport immersive hero experiences with particle backgrounds, cursor-follow gradients, and bold typography reveals.</div></div>
+        <div class="c-feature"><div class="c-feature-title">🌊 Scroll Storytelling</div><div class="c-feature-desc">Each section unfolds as you scroll — triggered animations, parallax depth, and progressive content reveals create a narrative flow.</div></div>
+        <div class="c-feature"><div class="c-feature-title">✨ Interaction Philosophy</div><div class="c-feature-desc">Magnetic buttons, hover glows, card illumination, and cursor morphing — every interaction feels tactile and premium.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Stack -->
+<div class="c-divider"></div>
+<section class="c-section" id="stack">
+  <div class="c-sh c-reveal">
+    <div class="c-sh-label" style="color:var(--text3)"><span>Recommended Stack</span></div>
+    <h2 class="c-sh-title">Built with precision</h2>
+  </div>
+  <div class="c-features c-reveal">
+    <div class="c-feature">
+      <div class="c-feature-title">Frontend</div>
+      <div class="c-stack" style="margin-top:1rem"><span class="c-stack-pill">Next.js 15</span><span class="c-stack-pill">React 19</span><span class="c-stack-pill">Tailwind CSS</span><span class="c-stack-pill">ShadCN UI</span><span class="c-stack-pill">Framer Motion</span></div>
+    </div>
+    <div class="c-feature">
+      <div class="c-feature-title">Animation</div>
+      <div class="c-stack" style="margin-top:1rem"><span class="c-stack-pill">GSAP</span><span class="c-stack-pill">Lenis</span><span class="c-stack-pill">Three.js</span><span class="c-stack-pill">React Three Fiber</span></div>
+    </div>
+    <div class="c-feature">
+      <div class="c-feature-title">Backend</div>
+      <div class="c-stack" style="margin-top:1rem"><span class="c-stack-pill">Python</span><span class="c-stack-pill">FastAPI</span><span class="c-stack-pill">Ollama</span><span class="c-stack-pill">PostgreSQL</span><span class="c-stack-pill">Redis</span><span class="c-stack-pill">WebSockets</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="c-cta c-reveal">
+  <h2 class="c-cta-title">Ready to<br>explore?</h2>
+  <p class="c-cta-sub">Click any product above to experience its full Awwwards-level cinematic journey.</p>
+  <a href="#products" class="c-btn c-btn-primary">View Products</a>
+</section>
+
+<!-- Footer -->
+<footer class="c-footer">
+  <div class="c-footer-brand">LifeOS Ecosystem</div>
+  <div class="c-footer-copy">© 2025 Divyanshu Mishra · All Rights Reserved</div>
+</footer>
+
+<script src="engine.js"></script>
+<script>initEngine({heroGradient:true,color1:'124,58,237',color2:'6,182,212'});</script>
+</body>
+</html>

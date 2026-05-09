@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>AI Book Generator — LifeOS</title>
+<meta name="description" content="AI publishing engine generating complete books from a single prompt with luxury editorial design.">
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root{--ac:#f59e0b;--ac2:#fbbf24;--ac-rgb:245,158,11;--ac2-rgb:251,191,36}
+  .c-hero-label::before{background:var(--ac)}.c-sh-label{color:var(--ac)!important}.c-sh-label::before{background:var(--ac)}
+  .c-feature-icon{background:rgba(var(--ac-rgb),0.12);color:var(--ac)}.c-feature:hover{border-color:rgba(var(--ac-rgb),0.2)}
+  .c-feature::before{background:radial-gradient(circle at var(--gx,50%) var(--gy,50%),rgba(var(--ac-rgb),0.06),transparent 60%)}
+  .c-feature-list li::before{background:var(--ac)}.c-hero-title .accent{background:linear-gradient(135deg,var(--ac),var(--ac2),#f43f5e)}
+  .c-stat-num{color:var(--ac2)}
+  .book-page{border:1px solid var(--border);border-radius:var(--r-lg);background:var(--bg2);padding:3rem;position:relative;overflow:hidden}
+  .book-page::before{content:'';position:absolute;top:0;left:50%;width:1px;height:100%;background:var(--border)}
+  .book-chapter{font-family:var(--font-display);font-size:0.6rem;text-transform:uppercase;letter-spacing:0.2em;color:var(--ac);margin-bottom:1rem}
+  .book-heading{font-family:var(--font-display);font-size:1.5rem;font-weight:700;margin-bottom:1rem;letter-spacing:-0.02em}
+  .book-text{font-size:0.82rem;color:var(--text2);line-height:2;max-width:90%}
+  .book-text .highlight{background:rgba(var(--ac-rgb),0.15);padding:0.1rem 0.3rem;border-radius:3px}
+</style>
+</head>
+<body>
+<div class="c-loader"><div class="c-loader-bar"></div></div>
+<nav class="c-nav">
+  <a href="../../index.html" class="c-nav-back"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>LifeOS</a>
+  <div class="c-nav-links"><a href="#writing" class="c-nav-link">Writing</a><a href="#features" class="c-nav-link">Features</a><a href="#reading" class="c-nav-link">Reading</a></div>
+</nav>
+
+<section class="c-hero">
+  <div class="c-hero-bg"><canvas id="particles"></canvas></div>
+  <div class="c-hero-content">
+    <div class="c-hero-label">04 — AI Book Generator</div>
+    <h1 class="c-hero-title">Entire books from<br><span class="accent">a single idea.</span></h1>
+    <p class="c-hero-sub">An AI publishing engine capable of generating complete books, guides, business documents, and educational materials from a single prompt.</p>
+    <div class="c-hero-cta"><a href="#writing" class="c-btn c-btn-primary">Start Writing</a><a href="#reading" class="c-btn c-btn-ghost">Reading Experience</a></div>
+  </div>
+  <div class="c-hero-num">04</div>
+  <div class="c-hero-scroll"><div class="scroll-indicator"></div><span>Scroll</span></div>
+</section>
+
+<div class="c-marquee"><div class="c-marquee-inner">
+  <span class="c-marquee-item">Chapter Generation<span class="dot" style="background:var(--ac)"></span></span>
+  <span class="c-marquee-item">AI Storytelling<span class="dot" style="background:var(--ac2)"></span></span>
+  <span class="c-marquee-item">PDF Export<span class="dot" style="background:#f43f5e"></span></span>
+  <span class="c-marquee-item">EPUB Support<span class="dot" style="background:var(--ac)"></span></span>
+  <span class="c-marquee-item">Tone Customization<span class="dot" style="background:var(--ac2)"></span></span>
+  <span class="c-marquee-item">AI Cover Art<span class="dot" style="background:#7c3aed"></span></span>
+</div></div>
+
+<section class="c-section-sm"><div class="c-stats c-reveal">
+  <div><div class="c-stat-num" data-count="300">0</div><div class="c-stat-label">Pages per Book</div></div>
+  <div><div class="c-stat-num" data-count="25">0</div><div class="c-stat-label">Chapters Auto</div></div>
+  <div><div class="c-stat-num" data-count="10">0</div><div class="c-stat-label">Export Formats</div></div>
+  <div><div class="c-stat-num" data-count="60">0</div><div class="c-stat-label">Sec to Generate</div></div>
+</div></section>
+
+<!-- Writing Engine -->
+<div class="c-divider"></div>
+<section class="c-section" id="writing">
+  <div class="c-split">
+    <div class="c-reveal">
+      <div class="c-sh"><div class="c-sh-label"><span>AI Writing Engine</span></div>
+        <h2 class="c-sh-title">From prompt<br>to manuscript.</h2>
+        <p class="c-sh-desc">AI-powered chapter generation with tone control, citation support, and intelligent structure planning. Watch your book come alive, chapter by chapter.</p>
+      </div>
+    </div>
+    <div class="c-reveal" style="transition-delay:0.15s">
+      <div class="book-page">
+        <div class="book-chapter">Chapter 3 — Architecture Patterns</div>
+        <div class="book-heading">The Art of Scalable Systems</div>
+        <div class="book-text">Modern software architecture demands a <span class="highlight">composable approach</span> where each component operates independently while maintaining coherent system behavior. The key insight is that <span class="highlight">microservices are not just about splitting code</span> — they represent a fundamental shift in how we think about system boundaries and data ownership...</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Features -->
+<div class="c-divider"></div>
+<section class="c-section" id="features">
+  <div class="c-sh c-reveal"><div class="c-sh-label"><span>Core Features</span></div><h2 class="c-sh-title">Publishing<br>reimagined.</h2></div>
+  <div class="c-features c-reveal">
+    <div class="c-feature"><div class="c-feature-icon">✍️</div><div class="c-feature-title">AI Writing Engine</div><ul class="c-feature-list"><li>Topic-based generation</li><li>Chapter creation</li><li>AI storytelling</li><li>Citation generation</li><li>Tone customization</li><li>Book structure planning</li></ul></div>
+    <div class="c-feature"><div class="c-feature-icon">📖</div><div class="c-feature-title">Publishing System</div><ul class="c-feature-list"><li>PDF export</li><li>EPUB export</li><li>Online reading mode</li><li>AI cover generation</li><li>Reading analytics</li></ul></div>
+    <div class="c-feature"><div class="c-feature-icon">🔮</div><div class="c-feature-title">AI Enhancement</div><ul class="c-feature-list"><li>Grammar correction</li><li>Fact improvement</li><li>AI rewrite mode</li><li>Smart continuation</li></ul></div>
+  </div>
+</section>
+
+<!-- Reading Experience -->
+<div class="c-divider"></div>
+<section class="c-section" id="reading">
+  <div class="c-sh c-reveal"><div class="c-sh-label"><span>Reading Experience</span></div><h2 class="c-sh-title">Luxury editorial<br>reading.</h2><p class="c-sh-desc">Smooth page-turn transitions, premium typography, and an immersive distraction-free reading environment.</p></div>
+  <div class="c-split c-reveal">
+    <div><div class="c-stack"><span class="c-stack-pill">Next.js</span><span class="c-stack-pill">Tailwind CSS</span><span class="c-stack-pill">Framer Motion</span><span class="c-stack-pill">Python</span><span class="c-stack-pill">LLM APIs</span><span class="c-stack-pill">PDFKit</span><span class="c-stack-pill">FastAPI</span></div></div>
+    <div><div class="c-pages" style="grid-template-columns:1fr"><div class="c-page">Landing Page</div><div class="c-page">AI Book Builder</div><div class="c-page">Reading Interface</div><div class="c-page">Export Center</div><div class="c-page">User Library</div></div></div>
+  </div>
+</section>
+
+<section class="c-cta c-reveal">
+  <h2 class="c-cta-title" style="background:linear-gradient(135deg,var(--ac),var(--ac2));-webkit-background-clip:text;-webkit-text-fill-color:transparent">Your book<br>starts here.</h2>
+  <p class="c-cta-sub">One prompt. One idea. One complete manuscript.</p>
+  <a href="../../index.html" class="c-btn c-btn-primary">← Back to LifeOS</a>
+</section>
+<footer class="c-footer"><div class="c-footer-brand">LifeOS / AI Book Generator</div><div class="c-footer-copy">© 2025 Divyanshu Mishra</div></footer>
+<script src="../../engine.js"></script>
+<script>initEngine({particles:'particles',particleColor:'245,158,11',color1:'245,158,11',color2:'251,191,36'});</script>
+</body></html>

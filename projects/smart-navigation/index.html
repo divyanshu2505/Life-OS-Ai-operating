@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Smart Navigation — LifeOS</title>
+<meta name="description" content="Futuristic Tesla × Google Maps navigation with AI route intelligence and 3D map visuals.">
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root{--ac:#10b981;--ac2:#34d399;--ac-rgb:16,185,129;--ac2-rgb:52,211,153}
+  .c-hero-label::before{background:var(--ac)}.c-sh-label{color:var(--ac)!important}.c-sh-label::before{background:var(--ac)}
+  .c-feature-icon{background:rgba(var(--ac-rgb),0.12);color:var(--ac)}.c-feature:hover{border-color:rgba(var(--ac-rgb),0.2)}
+  .c-feature::before{background:radial-gradient(circle at var(--gx,50%) var(--gy,50%),rgba(var(--ac-rgb),0.06),transparent 60%)}
+  .c-feature-list li::before{background:var(--ac)}.c-hero-title .accent{background:linear-gradient(135deg,var(--ac),var(--ac2),#06b6d4)}
+  .c-stat-num{color:var(--ac2)}
+  .map-hud{border:1px solid var(--border);border-radius:var(--r-lg);background:var(--bg2);padding:2rem;position:relative;overflow:hidden}
+  .hud-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+  .hud-item{padding:1rem;border:1px solid var(--border);border-radius:var(--r-sm);background:rgba(var(--ac-rgb),0.03)}
+  .hud-label{font-size:0.6rem;text-transform:uppercase;letter-spacing:0.15em;color:var(--text3)}
+  .hud-value{font-family:var(--font-display);font-size:1.5rem;font-weight:700;color:var(--ac2);margin-top:0.3rem}
+  .route-line{height:3px;background:linear-gradient(to right,var(--ac),var(--ac2),var(--ac));border-radius:2px;animation:routePulse 3s ease infinite}
+  @keyframes routePulse{0%,100%{background-size:200% 100%;background-position:0% 0%}50%{background-size:200% 100%;background-position:100% 0%}}
+</style>
+</head>
+<body>
+<div class="c-loader"><div class="c-loader-bar"></div></div>
+<nav class="c-nav"><a href="../../index.html" class="c-nav-back"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>LifeOS</a><div class="c-nav-links"><a href="#hud" class="c-nav-link">HUD</a><a href="#features" class="c-nav-link">Features</a><a href="#intelligence" class="c-nav-link">AI Routes</a></div></nav>
+
+<section class="c-hero">
+  <div class="c-hero-bg"><canvas id="particles"></canvas></div>
+  <div class="c-hero-content">
+    <div class="c-hero-label">05 — Smart Navigation</div>
+    <h1 class="c-hero-title">Navigation designed<br><span class="accent">for the future.</span></h1>
+    <p class="c-hero-sub">A futuristic intelligent navigation platform inspired by Google Maps and Tesla dashboards with real-time traffic visualization and AI route intelligence.</p>
+    <div class="c-hero-cta"><a href="#hud" class="c-btn c-btn-primary">Launch Navigation</a><a href="#features" class="c-btn c-btn-ghost">Explore Features</a></div>
+  </div>
+  <div class="c-hero-num">05</div>
+  <div class="c-hero-scroll"><div class="scroll-indicator"></div><span>Scroll</span></div>
+</section>
+
+<div class="c-marquee"><div class="c-marquee-inner">
+  <span class="c-marquee-item">Real-time Maps<span class="dot" style="background:var(--ac)"></span></span>
+  <span class="c-marquee-item">AI Route Optimization<span class="dot" style="background:var(--ac2)"></span></span>
+  <span class="c-marquee-item">Traffic Prediction<span class="dot" style="background:#f59e0b"></span></span>
+  <span class="c-marquee-item">3D Map Effects<span class="dot" style="background:var(--ac)"></span></span>
+  <span class="c-marquee-item">Neon Route Glow<span class="dot" style="background:var(--ac2)"></span></span>
+  <span class="c-marquee-item">Weather Overlays<span class="dot" style="background:#3b82f6"></span></span>
+</div></div>
+
+<section class="c-section-sm"><div class="c-stats c-reveal">
+  <div><div class="c-stat-num" data-count="15">0</div><div class="c-stat-label">% Faster Routes</div></div>
+  <div><div class="c-stat-num" data-count="98">0</div><div class="c-stat-label">% ETA Accuracy</div></div>
+  <div><div class="c-stat-num" data-count="200">0</div><div class="c-stat-label">Cities Covered</div></div>
+  <div><div class="c-stat-num" data-count="5">0</div><div class="c-stat-label">Pages</div></div>
+</div></section>
+
+<!-- HUD Demo -->
+<div class="c-divider"></div>
+<section class="c-section" id="hud">
+  <div class="c-split">
+    <div class="c-reveal">
+      <div class="c-sh"><div class="c-sh-label"><span>Tesla-Inspired HUD</span></div>
+        <h2 class="c-sh-title">Drive with<br>intelligence.</h2>
+        <p class="c-sh-desc">Futuristic heads-up display with real-time metrics, neon route visualization, and dynamic weather overlays.</p>
+      </div>
+      <div class="route-line" style="margin-top:2rem;max-width:300px"></div>
+    </div>
+    <div class="c-reveal" style="transition-delay:0.15s">
+      <div class="map-hud">
+        <div class="hud-grid">
+          <div class="hud-item"><div class="hud-label">ETA</div><div class="hud-value">23 min</div></div>
+          <div class="hud-item"><div class="hud-label">Distance</div><div class="hud-value">18.4 km</div></div>
+          <div class="hud-item"><div class="hud-label">Traffic</div><div class="hud-value" style="color:#f59e0b">Moderate</div></div>
+          <div class="hud-item"><div class="hud-label">Fuel Saved</div><div class="hud-value">12%</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="c-divider"></div>
+<section class="c-section" id="features">
+  <div class="c-sh c-reveal"><div class="c-sh-label"><span>Core Features</span></div><h2 class="c-sh-title">Intelligence<br>on every road.</h2></div>
+  <div class="c-features c-reveal">
+    <div class="c-feature"><div class="c-feature-icon">🗺️</div><div class="c-feature-title">Navigation Features</div><ul class="c-feature-list"><li>Real-time maps</li><li>Traffic overlays</li><li>Route optimization</li><li>Saved places</li><li>Nearby discovery</li><li>ETA prediction</li></ul></div>
+    <div class="c-feature"><div class="c-feature-icon">🤖</div><div class="c-feature-title">AI Features</div><ul class="c-feature-list"><li>Smart route suggestions</li><li>Fuel optimization</li><li>Traffic prediction</li><li>Personalized routes</li></ul></div>
+    <div class="c-feature"><div class="c-feature-icon">🎨</div><div class="c-feature-title">Visual Experience</div><ul class="c-feature-list"><li>3D map effects</li><li>Neon route glow</li><li>Dynamic weather overlays</li><li>Animated markers</li></ul></div>
+  </div>
+</section>
+
+<div class="c-divider"></div>
+<section class="c-section" id="intelligence">
+  <div class="c-split c-reveal">
+    <div><div class="c-sh"><div class="c-sh-label"><span>Tech Stack</span></div></div><div class="c-stack"><span class="c-stack-pill">Next.js</span><span class="c-stack-pill">Leaflet.js</span><span class="c-stack-pill">OpenStreetMap</span><span class="c-stack-pill">Tailwind CSS</span><span class="c-stack-pill">FastAPI</span><span class="c-stack-pill">Geo APIs</span><span class="c-stack-pill">WebSockets</span></div></div>
+    <div><div class="c-sh"><div class="c-sh-label"><span>Pages</span></div></div><div class="c-pages" style="grid-template-columns:1fr"><div class="c-page">Homepage</div><div class="c-page">Navigation Dashboard</div><div class="c-page">Saved Routes</div><div class="c-page">Travel Analytics</div><div class="c-page">Settings</div></div></div>
+  </div>
+</section>
+
+<section class="c-cta c-reveal">
+  <h2 class="c-cta-title" style="background:linear-gradient(135deg,var(--ac),var(--ac2));-webkit-background-clip:text;-webkit-text-fill-color:transparent">Navigate<br>smarter.</h2>
+  <p class="c-cta-sub">AI-powered routes for the modern world.</p>
+  <a href="../../index.html" class="c-btn c-btn-primary">← Back to LifeOS</a>
+</section>
+<footer class="c-footer"><div class="c-footer-brand">LifeOS / Smart Navigation</div><div class="c-footer-copy">© 2025 Divyanshu Mishra</div></footer>
+<script src="../../engine.js"></script>
+<script>initEngine({particles:'particles',particleColor:'16,185,129',color1:'16,185,129',color2:'52,211,153'});</script>
+</body></html>

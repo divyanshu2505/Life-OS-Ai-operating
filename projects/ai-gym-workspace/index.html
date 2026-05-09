@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>AI Gym & Fitness Workspace — LifeOS</title>
+<meta name="description" content="Futuristic AI-powered fitness ecosystem with workout intelligence, AI coaching, and cyberpunk visuals.">
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root{--ac:#84cc16;--ac2:#a3e635;--ac-rgb:132,204,22;--ac2-rgb:163,230,53}
+  .c-hero-label::before{background:var(--ac)}.c-sh-label{color:var(--ac)!important}.c-sh-label::before{background:var(--ac)}
+  .c-feature-icon{background:rgba(var(--ac-rgb),0.12);color:var(--ac)}.c-feature:hover{border-color:rgba(var(--ac-rgb),0.2)}
+  .c-feature::before{background:radial-gradient(circle at var(--gx,50%) var(--gy,50%),rgba(var(--ac-rgb),0.06),transparent 60%)}
+  .c-feature-list li::before{background:var(--ac)}.c-hero-title .accent{background:linear-gradient(135deg,var(--ac),var(--ac2),#10b981)}
+  .c-stat-num{color:var(--ac2)}
+  .progress-ring-container{display:flex;gap:2rem;flex-wrap:wrap;justify-content:center}
+  .progress-ring{position:relative;width:120px;height:120px}
+  .progress-ring svg{transform:rotate(-90deg)}
+  .progress-ring circle{fill:none;stroke-width:4;stroke-linecap:round}
+  .progress-ring .bg{stroke:var(--surface2)}
+  .progress-ring .fill{transition:stroke-dashoffset 1.5s var(--ease)}
+  .progress-ring-label{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+  .progress-ring-value{font-family:var(--font-display);font-size:1.3rem;font-weight:700}
+  .progress-ring-name{font-size:0.6rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.1em;margin-top:0.2rem}
+  .workout-card{border:1px solid var(--border);border-radius:var(--r);padding:1.2rem 1.5rem;background:var(--bg2);display:flex;align-items:center;gap:1rem;transition:all 0.3s var(--ease)}
+  .workout-card:hover{border-color:rgba(var(--ac-rgb),0.3);transform:translateX(4px)}
+  .workout-icon{width:40px;height:40px;border-radius:10px;background:rgba(var(--ac-rgb),0.1);display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0}
+  .workout-name{font-weight:500;font-size:0.9rem}
+  .workout-meta{font-size:0.7rem;color:var(--text3);margin-top:0.2rem}
+  .workout-cals{font-family:var(--font-mono);font-size:0.8rem;color:var(--ac2);margin-left:auto}
+</style>
+</head>
+<body>
+<div class="c-loader"><div class="c-loader-bar"></div></div>
+<nav class="c-nav"><a href="../../index.html" class="c-nav-back"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>LifeOS</a><div class="c-nav-links"><a href="#dashboard" class="c-nav-link">Dashboard</a><a href="#features" class="c-nav-link">Features</a><a href="#coach" class="c-nav-link">AI Coach</a></div></nav>
+
+<section class="c-hero">
+  <div class="c-hero-bg"><canvas id="particles"></canvas></div>
+  <div class="c-hero-content">
+    <div class="c-hero-label">09 — AI Gym & Fitness Workspace</div>
+    <h1 class="c-hero-title">Your AI coach<br><span class="accent">with a futuristic mind.</span></h1>
+    <p class="c-hero-sub">A futuristic AI-powered health and fitness ecosystem with workout intelligence, AI coaching, and cyberpunk-inspired visuals.</p>
+    <div class="c-hero-cta"><a href="#dashboard" class="c-btn c-btn-primary">Start Training</a><a href="#coach" class="c-btn c-btn-ghost">Meet AI Coach</a></div>
+  </div>
+  <div class="c-hero-num">09</div>
+  <div class="c-hero-scroll"><div class="scroll-indicator"></div><span>Scroll</span></div>
+</section>
+
+<div class="c-marquee"><div class="c-marquee-inner">
+  <span class="c-marquee-item">AI Workout Plans<span class="dot" style="background:var(--ac)"></span></span>
+  <span class="c-marquee-item">Calorie Tracking<span class="dot" style="background:var(--ac2)"></span></span>
+  <span class="c-marquee-item">Diet Intelligence<span class="dot" style="background:#10b981"></span></span>
+  <span class="c-marquee-item">Recovery Tracking<span class="dot" style="background:var(--ac)"></span></span>
+  <span class="c-marquee-item">Progress Analytics<span class="dot" style="background:var(--ac2)"></span></span>
+  <span class="c-marquee-item">AI Motivation<span class="dot" style="background:#f43f5e"></span></span>
+</div></div>
+
+<section class="c-section-sm"><div class="c-stats c-reveal">
+  <div><div class="c-stat-num" data-count="500">0</div><div class="c-stat-label">Exercises</div></div>
+  <div><div class="c-stat-num" data-count="50">0</div><div class="c-stat-label">AI Programs</div></div>
+  <div><div class="c-stat-num" data-count="24">0</div><div class="c-stat-label">7 Coaching</div></div>
+  <div><div class="c-stat-num" data-count="6">0</div><div class="c-stat-label">Pages</div></div>
+</div></section>
+
+<!-- Progress Dashboard -->
+<div class="c-divider"></div>
+<section class="c-section" id="dashboard">
+  <div class="c-split">
+    <div class="c-reveal">
+      <div class="c-sh"><div class="c-sh-label"><span>Progress Analytics</span></div><h2 class="c-sh-title">Track every<br>rep, every gain.</h2><p class="c-sh-desc">Cyberpunk-inspired progress rings with real-time workout metrics, calorie tracking, and recovery analytics.</p></div>
+    </div>
+    <div class="c-reveal" style="transition-delay:0.15s">
+      <div class="progress-ring-container">
+        <div class="progress-ring">
+          <svg width="120" height="120" viewBox="0 0 120 120"><circle class="bg" cx="60" cy="60" r="52"/><circle class="fill" cx="60" cy="60" r="52" stroke="var(--ac)" stroke-dasharray="327" stroke-dashoffset="49"/></svg>
+          <div class="progress-ring-label"><div class="progress-ring-value" style="color:var(--ac)">85%</div><div class="progress-ring-name">Calories</div></div>
+        </div>
+        <div class="progress-ring">
+          <svg width="120" height="120" viewBox="0 0 120 120"><circle class="bg" cx="60" cy="60" r="52"/><circle class="fill" cx="60" cy="60" r="52" stroke="var(--ac2)" stroke-dasharray="327" stroke-dashoffset="82"/></svg>
+          <div class="progress-ring-label"><div class="progress-ring-value" style="color:var(--ac2)">75%</div><div class="progress-ring-name">Workout</div></div>
+        </div>
+        <div class="progress-ring">
+          <svg width="120" height="120" viewBox="0 0 120 120"><circle class="bg" cx="60" cy="60" r="52"/><circle class="fill" cx="60" cy="60" r="52" stroke="#10b981" stroke-dasharray="327" stroke-dashoffset="98"/></svg>
+          <div class="progress-ring-label"><div class="progress-ring-value" style="color:#10b981">70%</div><div class="progress-ring-name">Recovery</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Today's Workout -->
+<div class="c-divider"></div>
+<section class="c-section">
+  <div class="c-sh c-reveal"><div class="c-sh-label"><span>AI Workout Engine</span></div><h2 class="c-sh-title">Today's<br>training.</h2></div>
+  <div class="c-reveal" style="display:flex;flex-direction:column;gap:0.75rem;max-width:600px">
+    <div class="workout-card"><div class="workout-icon">🏋️</div><div><div class="workout-name">Bench Press</div><div class="workout-meta">4 × 8 reps · 80kg</div></div><div class="workout-cals">120 cal</div></div>
+    <div class="workout-card"><div class="workout-icon">🏋️</div><div><div class="workout-name">Deadlift</div><div class="workout-meta">3 × 5 reps · 120kg</div></div><div class="workout-cals">180 cal</div></div>
+    <div class="workout-card"><div class="workout-icon">💪</div><div><div class="workout-name">Pull-ups</div><div class="workout-meta">4 × 10 reps · Bodyweight</div></div><div class="workout-cals">85 cal</div></div>
+    <div class="workout-card"><div class="workout-icon">🏃</div><div><div class="workout-name">HIIT Cardio</div><div class="workout-meta">20 min · High intensity</div></div><div class="workout-cals">250 cal</div></div>
+  </div>
+</section>
+
+<!-- Features -->
+<div class="c-divider"></div>
+<section class="c-section" id="features">
+  <div class="c-sh c-reveal"><div class="c-sh-label"><span>Core Features</span></div><h2 class="c-sh-title">Intelligence<br>meets fitness.</h2></div>
+  <div class="c-features c-reveal">
+    <div class="c-feature"><div class="c-feature-icon">💪</div><div class="c-feature-title">Fitness Intelligence</div><ul class="c-feature-list"><li>AI workout planning</li><li>Personalized exercises</li><li>Calorie tracking</li><li>Progress analytics</li><li>Diet recommendations</li></ul></div>
+    <div class="c-feature"><div class="c-feature-icon">🏋️</div><div class="c-feature-title">AI Coaching</div><ul class="c-feature-list"><li>AI fitness chatbot</li><li>Real-time suggestions</li><li>Motivation engine</li><li>Recovery tracking</li></ul></div>
+    <div class="c-feature"><div class="c-feature-icon">📊</div><div class="c-feature-title">Visual Features</div><ul class="c-feature-list"><li>3D body mapping</li><li>Animated progress</li><li>Cyberpunk health HUD</li><li>Workout heatmaps</li></ul></div>
+  </div>
+</section>
+
+<!-- AI Coach -->
+<div class="c-divider"></div>
+<section class="c-section" id="coach">
+  <div class="c-split">
+    <div class="c-reveal">
+      <div class="c-sh"><div class="c-sh-label"><span>AI Coach</span></div><h2 class="c-sh-title">Your personal<br>AI trainer.</h2><p class="c-sh-desc">24/7 AI coaching that adapts to your goals, tracks recovery, and provides real-time motivation and form corrections.</p></div>
+    </div>
+    <div class="c-reveal" style="transition-delay:0.15s">
+      <div class="c-showcase">
+        <div class="c-showcase-dots"><span></span><span></span><span></span></div>
+        <div class="c-showcase-content" style="align-items:flex-start;padding:2.5rem">
+          <div style="font-size:0.6rem;text-transform:uppercase;letter-spacing:0.2em;color:var(--text3);margin-bottom:1.5rem">AI Coach Chat</div>
+          <div style="display:flex;gap:0.8rem;margin-bottom:1rem;align-items:flex-start"><div style="width:24px;height:24px;border-radius:6px;background:rgba(var(--ac-rgb),0.15);display:flex;align-items:center;justify-content:center;font-size:0.7rem;flex-shrink:0">🤖</div><div style="font-size:0.82rem;color:var(--text2);line-height:1.6">Great session today! Your bench press form has improved 12% this week. Recovery score is at 70% — I recommend focusing on mobility work tomorrow.</div></div>
+          <div style="display:flex;gap:0.8rem;align-items:flex-start"><div style="width:24px;height:24px;border-radius:6px;background:rgba(255,255,255,0.06);display:flex;align-items:center;justify-content:center;font-size:0.7rem;flex-shrink:0">👤</div><div style="font-size:0.82rem;color:var(--text2)">What should I eat for recovery?</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="c-divider"></div>
+<section class="c-section">
+  <div class="c-split c-reveal">
+    <div><div class="c-sh"><div class="c-sh-label"><span>Tech Stack</span></div></div><div class="c-stack"><span class="c-stack-pill">Next.js</span><span class="c-stack-pill">Tailwind CSS</span><span class="c-stack-pill">Framer Motion</span><span class="c-stack-pill">Three.js</span><span class="c-stack-pill">FastAPI</span><span class="c-stack-pill">PostgreSQL</span><span class="c-stack-pill">AI Engine</span><span class="c-stack-pill">Nutrition APIs</span></div></div>
+    <div><div class="c-sh"><div class="c-sh-label"><span>Pages</span></div></div><div class="c-pages" style="grid-template-columns:1fr"><div class="c-page">Landing Page</div><div class="c-page">Workout Dashboard</div><div class="c-page">AI Coach</div><div class="c-page">Nutrition Tracker</div><div class="c-page">Progress Analytics</div><div class="c-page">Community</div></div></div>
+  </div>
+</section>
+
+<section class="c-cta c-reveal">
+  <h2 class="c-cta-title" style="background:linear-gradient(135deg,var(--ac),var(--ac2));-webkit-background-clip:text;-webkit-text-fill-color:transparent">Train smarter.<br>Recover faster.</h2>
+  <p class="c-cta-sub">Your AI-powered fitness evolution starts here.</p>
+  <a href="../../index.html" class="c-btn c-btn-primary">← Back to LifeOS</a>
+</section>
+<footer class="c-footer"><div class="c-footer-brand">LifeOS / AI Gym & Fitness</div><div class="c-footer-copy">© 2025 Divyanshu Mishra</div></footer>
+<script src="../../engine.js"></script>
+<script>initEngine({particles:'particles',particleColor:'132,204,22',color1:'132,204,22',color2:'163,230,53'});</script>
+</body></html>

@@ -1,0 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #09090b;
+  --bg2: #18181b;
+  --text: #f8fafc;
+  --text2: #94a3b8;
+  --text3: #64748b;
+  --border: rgba(255, 255, 255, 0.1);
+  --primary: #7c3aed;
+  --primary-rgb: 124, 58, 237;
+  --accent: #06b6d4;
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Base custom classes to match previous style.css logic */
+.c-loader {
+  position: fixed;
+  inset: 0;
+  background: var(--bg);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.c-loader-bar {
+  width: 0%;
+  height: 2px;
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+  animation: load 1s var(--ease) forwards;
+}
+
+@keyframes load {
+  0% { width: 0; }
+  100% { width: 200px; opacity: 0; }
+}
+
+.glass-panel {
+  background: rgba(24, 24, 27, 0.4);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border);
+}
